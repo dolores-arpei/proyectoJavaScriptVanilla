@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="estilo.css" />
+  <title>Proyecto Vanilla</title>
+</head>
+<body>
+  <div class="container">
+    <div class="caja">
+      <p id="mensajeBienvenida"></p>
+      <button onclick="redirigirPreguntas()" class="botonPreguntas">Preguntas</button>
+    </div>
+  </div>
+
+  <script>
+    // Funciones de manejo de laa cookies
+    function setCookie(cookiename, cookievalue, tiempoExpiracion) {
+      const fecha = new Date();
+      fecha.setTime(fecha.getTime() + tiempoExpiracion * 24 * 60 * 60 * 1000); // Fecha de expiración
+      const expires = "expires=" + fecha.toUTCString();
+      document.cookie = `${cookiename}=${cookievalue}; ${expires}; path=/`;
+    }
+    
+    function getCookie(cookiename) {
+      const name = `${cookiename}=`;
+      const cookies = document.cookie.split("; ");
+      for (let cookie of cookies) {
+        if (cookie.indexOf(name) === 0) {
+          return cookie.substring(name.length);
+        }
+      }
+      return "";
+    }
+    
+    function deleteCookie(cookiename) {
+      document.cookie = `${cookiename}=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/`;
+    }
+    
+    // Recupera los datos del usuario desde la cookie
+    const userDataJSON = getCookie("userData");
+    const mensajeBienvenida = document.getElementById("mensajeBienvenida");
+    
+    if (userDataJSON) {
+      const userData = JSON.parse(userDataJSON);
+      const fechaAcceso = new Date(userData.ultimoAcceso).toLocaleString("es-ES", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+    
+      mensajeBienvenida.innerHTML = `
+        <p>Hola <b>${userData.email}</b></p>
+        <p>La última vez que entraste fue el ${fechaAcceso}</p>
+      `;
+    } else {
+      mensajeBienvenida.textContent = "No hay datos disponibles.";
+    }
+    
+    // Redirige a la pantalla de las preguntas
+    function redirigirPreguntas() {
+      window.location.href = "pantallaTres.html";
+    }
+    </script>
+    
+</body>
+</html>
+

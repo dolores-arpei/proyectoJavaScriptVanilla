@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilo.css">
+  <title>Proyecto Vanilla</title>
+</head>
+<body>
+  <div class="container">
+    <div class="formulario">
+      <h2>Formulario</h2>
+      <label for="pregunta">Pregunta:</label>
+      <input type="text" id="pregunta" placeholder="Escribe tu pregunta" />
+
+      <p>Respuesta:</p>
+      <label><input type="radio" name="respuesta" value="Verdadero"> Verdadero</label>
+      <label><input type="radio" name="respuesta" value="Falso"> Falso</label>
+
+      <label for="puntuacion">Puntuación:</label>
+      <input type="text" id="puntuacion" placeholder="0-9" maxlength="1" />
+
+      <div class="botones">
+        <button id="botonAtras">Atrás</button>
+        <button id="btnGrabar" disabled>Grabar</button>
+      </div>
+    </div>
+
+    <div class="listado">
+      <h2>Listado de Preguntas</h2>
+      <p id="mensajeCarga">Cargando preguntas...</p>
+      <table id="tablaPreguntas" style="display: none;">
+        <thead>
+          <tr>
+            <th>Pregunta</th>
+            <th>Respuesta</th>
+            <th>Puntuación</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="pantallaTres.js"></script>
+</body>
+</html>

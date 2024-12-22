@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilo.css" />
+    <title>Proyecto Vanilla</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="caja" id="caja1">
+        Bienvenido, pulsa Control + F10 o espera 5 segundos
+      </div>
+
+      <div class="caja" id="caja2">
+        <label for="usuario">Usuario:</label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="Introduce tu email"
+          autocomplete="off"
+        />
+        <p id="errorEmail" style="color: red; display: none">
+          Por favor, introduce un email válido.
+        </p>
+      </div>
+    </div>
+
+    <script src="pantallaUno.js"></script>
+  </body>
+</html>
